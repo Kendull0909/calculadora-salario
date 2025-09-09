@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Salario Semanal</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .container { max-width: 500px; margin: auto; }
+        input, button { width: 100%; padding: 10px; margin-bottom: 10px; }
+        .resultado { background: #f0f0f0; padding: 15px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Salario Semanal</h1>
+        
+        <form method="post">
+            <label>Horas Martes:</label>
+            <input type="number" step="any" name="martes">
+
+            <label>Horas Miércoles:</label>
+            <input type="number" step="any" name="miercoles">
+
+            <label>Horas Jueves:</label>
+            <input type="number" step="any" name="jueves">
+
+            <label>Horas Viernes:</label>
+            <input type="number" step="any" name="viernes">
+
+            <label>Horas Sábado:</label>
+            <input type="number" step="any" name="sabado">
+
+            <label>Horas Domingo:</label>
+            <input type="number" step="any" name="domingo">
+
+            <label>Horas Extra:</label>
+            <input type="number" step="any" name="horas_extra">
+
+            <label>Precio por hora:</label>
+            <input type="number" step="any" name="precio_hora">
+
+            <label>Rebajos:</label>
+            <input type="number" step="any" name="rebajos">
+
+            <button type="submit">Calcular</button>
+        </form>
+
+        {% if mensaje %}
+            <p style="color: red;">{{ mensaje }}</p>
+        {% endif %}
+
+        {% if resultado %}
+            <div class="resultado">
+                <p><strong>Subtotal:</strong> {{ resultado.subtotal }}</p>
+                <p><strong>Salario Final:</strong> {{ resultado.salario_final }}</p>
+                <p><strong>Horas Trabajadas:</strong> {{ resultado.horas_trabajadas }}</p>
+                <p><small>Fecha: {{ resultado.fecha }}</small></p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
